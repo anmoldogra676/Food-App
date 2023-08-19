@@ -1,0 +1,36 @@
+so it's always to keep your code in some kind of structure 
+like make a components folder --> add your differenet components into that folder
+so add your components into that
+
+React uses one way data binding -->
+react if I want to use a variable in my component then I can use that which is basically constant
+but what if i want to update that ,
+How can I do that 
+Every component in react --> has a state 
+HOOK, STATE, USESTATE
+
+hooks --> js functions
+every hook has a specific function
+
+like usestate hook --> create a state
+get the usestate from react
+
+
+every component state --->
+state main I can add as many as varibales 
+so local varibales can be added in react using this 
+
+
+need of state -->
+to sync local varibales with UI you have to use state 
+react only create a update on Local state variables not on normal js varibales
+
+during usestae --> react keeps track and do reconsillation
+
+
+
+
+
+
+
+
