@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom"
 
 import ProfileClass from "./ProfileClass"
 import { Profile } from "./Profile"
-export let Aboutus =()=>{
+ let Aboutus =()=>{
     return(
         <>
         <h1>THIS IS ABOUT US PAGE</h1>
@@ -12,5 +12,5 @@ export let Aboutus =()=>{
         </>
     )
 }
-
+export default Aboutus;
 /*  What I want is inside About us there is another component name Profile */

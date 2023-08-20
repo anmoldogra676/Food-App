@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 // import { mainApi } from "./config"
-import { imagesLink } from "./config"
 import Shummer from "./shummer";
 import { Link } from "react-router-dom";
+import useOnline from "../../utils/useOnline";
+import Card from "./Card";
 
 
 // return list of searched restaurant
@@ -19,9 +20,10 @@ function filterData(restaurant, search){
 
 
 export const Body =()=>{
-    let [allRestaurent, setAllRestaurant] = useState(null);
+
+    let [allRestaurent, setAllRestaurant] = useState(null); // set of all the Restaurant
     let [searchText ,setSearchText] = useState(null);
-    let [filterrestaurants , setfilterRestaurant] = useState(null) //restaurants
+    let [filterrestaurants , setfilterRestaurant] = useState(null) //we would update restaurants
 
     // api se data fill kiya 2 values m
     useEffect( ()=>{
@@ -38,28 +40,34 @@ export const Body =()=>{
         // console.log(newdata[0]?.info?.name)
         setfilterRestaurant(newdata) 
         setAllRestaurant(newdata)
-
-  
    
     }
-  
+    let isOnline = useOnline(); // check internet in on or not
+    if(isOnline==false){
+       return <h2>Internet is not there</h2>
+    }
 
     return (
         <>
+        {/* Search Container */}
         <div className="Search-container">
         <input type="text" className="textInput" placeholder= "Search Anything" value ={searchText}
         onChange={(e)=>{
             setSearchText(e.target.value)
         }
     }/>
-    
+     
+     {/* This would filter or set the restuarant according to whatever being searched */}
         <button className="Search-Items" onClick={()=>{
-            const data =filterData(allRestaurent, searchText); //  used for search restaurant
+            const data =filterData(allRestaurent, searchText); //  used for search restaurant & search hmesa global wale se
+            // and update filter wale ko 
             // console.log(data)
             setfilterRestaurant(data) //update state
         }} >Search</button>
         </div>
 
+        {/* all restaurant means API se data aaya nhi toh simple show the shummer 
+        otherwise show the restaurants about what being searched */}
         {
         (!allRestaurent)?(<Shummer/>):(
         <div className="main-body">
@@ -91,19 +99,5 @@ export const Body =()=>{
         </>
     )
 }
-const Card=({restaurant})=>{
-    // console.log(restaurant)
-    return (
-     <div className="main-card">
-        <img  src = {imagesLink +
-        restaurant?.info?.cloudinaryImageId 
-        } alt=""
-        />
-        <div className="card-content">
-        <h3>{restaurant?.info?.name}</h3> 
-        <h3>{restaurant?.info?.avgRating}</h3>
-        </div>
-    </div> 
         
-    )
-}
+ 

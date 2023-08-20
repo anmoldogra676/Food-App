@@ -1,30 +1,26 @@
 
 
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import  ReactDOM  from "react-dom/client";
 import { Header } from "./components/Header";
 import { Body } from "./components/body";
 import Footer from "./components/footer";
-import { Aboutus } from "./components/About";
+// import { Aboutus } from "./components/About";
 import {createBrowserRouter ,RouterProvider, Outlet} from "react-router-dom";
 import Error from "./Error";
 import { Contact } from "./components/Contact";
 import { RestaurantsList } from "./components/RestaurantsList";
 import { Profile } from "./components/Profile";
+import Shummer from "./components/shummer";
 
 
-/*
-FOOD APP
-Header Component  ---> LOGO AND MENU ITEMS
-Body Component 
-Footer Component
-*/
+const Aboutus = lazy(()=>import("./components/About")); 
 
-const AppLayout=()=> {
+function AppLayout() {
     return (
         <>
-            <Header /> {/* I want this to display on all pages */ }
-            <Outlet/> {/*This should change according to all things  */ }
+            <Header /> {/* I want this to display on all pages */}
+            <Outlet /> {/*This should change according to all things  */}
             <Footer />
         </>
     );
@@ -36,7 +32,7 @@ element:<AppLayout/>,
 errorElement:<Error/>,
 children:[{
     path:"/About",
-    element:<Aboutus/>,
+    element:<Suspense fallback= {<Shummer/>} ><Aboutus/></Suspense>,
     children:[
         {
             path:"profile",

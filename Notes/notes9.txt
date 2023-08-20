@@ -1,0 +1,27 @@
+Whenever we are making large scale application like amazon.
+so we need to take care two or three things 
+1. if we are going to amazon to buy phones then we certainly not buy the laptop or washing machnies
+2. so take care of only essential things which are initially required and later when user wants we can 
+display that part
+
+THUS we make different bundles --->
+
+this concept is called --> Lazy loading, dynamic binding , chunking ,code splitting
+
+we can use Lazy () given by react 
+let ComponentName =Lazy(()=> import("   path we give ") )
+
+jahan pe use to keep it in suspense -->
+<suspense>ComponentName </suspense>
+without suspense --> it will take some time to load to use suspense it will  be loaded fast react keeps a way 
+and in suspense we can use fallback if in the mean time we wnat to display something
+
+
+   Lazy load --> import component like this
+   const Aboutus = lazy(()=>import("./components/About")); 
+
+    element:<Suspense fallback= {<Shummer/>} ><Aboutus/></Suspense>,
+
+
+    *********
+    Never dynamic load component inside the component
