@@ -4,6 +4,7 @@ const Card=({restaurant})=>{
     // console.log(restaurant)
     return (
      <div className="main-card">
+        <div className="shadow-md ">
         <img  src = {imagesLink +
         restaurant?.info?.cloudinaryImageId 
         } alt=""
@@ -11,6 +12,7 @@ const Card=({restaurant})=>{
         <div className="card-content">
         <h3>{restaurant?.info?.name}</h3> 
         <h3>{restaurant?.info?.avgRating}</h3>
+        </div>
         </div>
     </div> 
     )

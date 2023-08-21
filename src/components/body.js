@@ -48,9 +48,9 @@ export const Body =()=>{
     }
 
     return (
-        <>
+        <div className="bg-slate-100 ">
         {/* Search Container */}
-        <div className="Search-container">
+        <div className="Search-container my-2 p-2 flex space-x-4">
         <input type="text" className="textInput" placeholder= "Search Anything" value ={searchText}
         onChange={(e)=>{
             setSearchText(e.target.value)
@@ -58,7 +58,7 @@ export const Body =()=>{
     }/>
      
      {/* This would filter or set the restuarant according to whatever being searched */}
-        <button className="Search-Items" onClick={()=>{
+        <button className="Search-Items bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-3 rounded" onClick={()=>{
             const data =filterData(allRestaurent, searchText); //  used for search restaurant & search hmesa global wale se
             // and update filter wale ko 
             // console.log(data)
@@ -70,7 +70,7 @@ export const Body =()=>{
         otherwise show the restaurants about what being searched */}
         {
         (!allRestaurent)?(<Shummer/>):(
-        <div className="main-body">
+        <div className="main-body flex flex-wrap gap-8 m-3 p-2 shadow-sm bg-slate-100">
                { 
               filterrestaurants.map((restaurantList, index)=>{
                     // console.log(restaurantList)
@@ -96,7 +96,7 @@ export const Body =()=>{
         </div>
     )
         }
-        </>
+        </div>
     )
 }
         
