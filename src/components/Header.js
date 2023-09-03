@@ -22,11 +22,12 @@ export const Header=()=> {
         <MainLogo/>
             <div className="nav-items ml-4  ">
                 <ul className="flex">
-                   <li className="px-2">{isOnline?"🧑‍💻":"😌"}</li>
-                   <li className="px-2"><Link to="/">Home </Link></li>
-                   <li className="px-2" ><Link to="/contact">Contact </Link></li>
-                   <li className="px-2"><Link to="/about">About us </Link></li>
-                   <li > 
+                   <li className="px-2 ">{isOnline?"🧑‍💻":"😌"}</li>
+                   <li className="px-2  bg-slate-300  hover:bg-slate-400  items-center"><Link to="/">Home </Link></li>
+                   <li className="px-2  bg-slate-300  hover:bg-slate-400  items-center"><Link to="/supermart">SuperMart </Link></li>
+                   <li className="px-2  bg-slate-300  hover:bg-slate-400  items-center" ><Link to="/contact">Contact </Link></li>
+                   <li className="px-2  bg-slate-300  hover:bg-slate-400  items-center"><Link to="/about">About us </Link></li>
+                   <li className="px-2  bg-slate-300  hover:bg-slate-400  items-center"> 
                    {
                     loggedin?(<button onClick={()=>{
                         setLogged(false)

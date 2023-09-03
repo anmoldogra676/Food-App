@@ -1,6 +1,6 @@
 
 
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import  ReactDOM  from "react-dom/client";
 import { Header } from "./components/Header";
 import { Body } from "./components/body";
@@ -12,16 +12,29 @@ import { Contact } from "./components/Contact";
 import { RestaurantsList } from "./components/RestaurantsList";
 import { Profile } from "./components/Profile";
 import Shummer from "./components/shummer";
-
+import SuperMart from "./components/SuperMart";
+import UserContext from "/utils/UserContext.js";
+import { useContext } from "react";
 
 const Aboutus = lazy(()=>import("./components/About")); 
 
 function AppLayout() {
+
+    const [user, setUser] =useState({
+        name:"Anmol",
+        email:"anmoldogra@gmail.com"
+    })
+
     return (
         <>
+        <UserContext.Provider value ={{
+            user: user,
+            setUser:setUser
+        }}>
             <Header /> {/* I want this to display on all pages */}
             <Outlet /> {/*This should change according to all things  */}
             <Footer />
+        </UserContext.Provider>
         </>
     );
 }
@@ -45,6 +58,9 @@ children:[{
 },{
     path:"/",
     element:<Body/>
+},{
+    path:"/supermart",
+    element:<SuperMart/>
 },
 {
     // Dynamic routing  --> swiggy m restaurants jo show hote click krke new page pe paunch jaate 

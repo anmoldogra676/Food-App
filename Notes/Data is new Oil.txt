@@ -1,0 +1,29 @@
+There is a UI layer
+and Also a DATA layer
+
+for UI --> jsx ( jsx converted to html and js which is converted by babel)
+jsx converted to virtual dom  --> diff & reconsillation happens and diff is sync with actual dom 
+
+Data Layer ==> It consists of stats and props 
+We manage UI with data (state and props) ---> state --> local in functional component 
+and props are passed through parent means one component to other component 
+there are also more things into it.
+
+Props Drilling --> 
+if you want to share the data from top parent to the child , then in parent you can use the state and then basically 
+pass that into as props into lower side to children . thinks it as a tree where you have to send data from root of tree
+to child ---> prop drilling 
+--> unnecssary details for other component 
+--> if he/she changes the things then wasted
+
+Next is lifting the state up -->
+parent to give control what to show or not 
+so prop drill --->
+Lift the state up --->
+(child  --> se kuch share krna ho parent ko )
+
+Next Feature ::
+Redux state 
+context  ---> a  central state which can be used anywhere in the app
+
+
